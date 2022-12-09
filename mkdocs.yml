@@ -1,0 +1,60 @@
+# yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
+
+site_name: StableHLO
+
+repo_url: https://github.com/openxla/stablehlo
+repo_name: openxla/stablehlo
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  logo: website/assets/openxla-logo-lockup-white.svg
+  favicon: website/assets/favicon.ico
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/file-edit-outline
+  palette:
+    primary: black
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.sections
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.snippets:
+      check_paths: True
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.arithmatex:
+      generic: true
+#  - mdx_truly_sane_lists:      # Allows nested lists with single newline
+#      nested_indent: 2
+
+plugins:
+  - search
+  - git-revision-date-localized:
+      enable_creation_date: true
+
+extra_javascript:
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+
+nav:
+  - Home: index.md
+  - Docs:
+    - Interpreter design: reference.md
+    - Bytecode: bytecode.md
+    - Type inference: type_inference.md
+    - Spec info:
+      - Status: status.md
+      - Checklist: spec_checklist.md
+  - Specification:
+    - StableHLO Specification Draft: spec_draft.md
