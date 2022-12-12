@@ -13,13 +13,33 @@ theme:
   icon:
     repo: fontawesome/brands/github
     edit: material/file-edit-outline
+  font:
+    text: Noto
+    code: Noto Sans Mono
   palette:
-    primary: black
+    # Palette toggle for light mode
+    - scheme: default
+      primary: black
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: black
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
   features:
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.top
     - navigation.sections
+
+extra_css:
+  - website/stylesheets/openxla.css
+extra_javascript:
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 markdown_extensions:
   - pymdownx.highlight:
@@ -36,16 +56,13 @@ markdown_extensions:
       generic: true
 #  - mdx_truly_sane_lists:      # Allows nested lists with single newline
 #      nested_indent: 2
+  - toc:
+      permalink: 'link'
 
 plugins:
   - search
   - git-revision-date-localized:
       enable_creation_date: true
-
-extra_javascript:
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
-  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-
 
 nav:
   - Home: index.md
