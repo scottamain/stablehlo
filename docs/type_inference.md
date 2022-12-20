@@ -1,5 +1,9 @@
 Oops
 
++  one
+-  two
+*  three
+
 StableHLO has been originally bootstrapped from [the MHLO dialect](https://github.com/tensorflow/mlir-hlo#meta-hlo-dialect-mhlo), including inheriting the implementation of type inference. The implementation progress is tracked in [status.md](https://github.com/openxla/stablehlo/blob/main/docs/status.md).
 
 To implement high-quality verifiers and shape functions for StableHLO ops, these guidelines are proposed below to follow:
