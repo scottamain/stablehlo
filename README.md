@@ -1,4 +1,4 @@
-# StableHLO
+Okay.
 
 StableHLO is an operation set that expresses ML computations. It has been
 originally bootstrapped from
@@ -11,7 +11,6 @@ We are aiming for adoption by a wide variety of ML frameworks including
 TensorFlow, JAX and PyTorch, as well as ML compilers including XLA and IREE.
 
 ## Development
-
 We're using GitHub issues / pull requests to organize development and
 [GitHub discussions](https://github.com/orgs/openxla/discussions/categories/stablehlo)
 to have longer discussions. We also have a `#stablehlo`
