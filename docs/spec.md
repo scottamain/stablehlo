@@ -1,3 +1,9 @@
+---
+hide:
+  - navigation
+toc_depth: 2
+---
+
 # StableHLO Specification
 
 StableHLO is an operation set for high-level operations (HLO) in machine

@@ -16,6 +16,7 @@ theme:
   font:
     text: Noto
     code: Noto Sans Mono
+  custom_dir: docs/website/overrides
   palette:
     # Palette toggle for light mode
     - scheme: default
@@ -33,7 +34,9 @@ theme:
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.top
+    - navigation.instant
     - navigation.sections
+    - toc.follow
 
 extra_css:
   - website/stylesheets/openxla.css
@@ -58,6 +61,7 @@ markdown_extensions:
 #      nested_indent: 2
   - toc:
       permalink: 'link'
+      toc_depth: 3
 
 plugins:
   - search
@@ -66,12 +70,5 @@ plugins:
 
 nav:
   - Home: index.md
-  - Docs:
-    - Interpreter design: reference.md
-    - Bytecode: bytecode.md
-    - Type inference: type_inference.md
-    - Spec info:
-      - Status: status.md
-      - Checklist: spec_checklist.md
   - Specification:
     - StableHLO Specification Draft: spec_draft.md
