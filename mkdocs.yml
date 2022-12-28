@@ -71,4 +71,4 @@ plugins:
 nav:
   - Home: index.md
   - Specification:
-    - StableHLO Specification Draft: spec_draft.md
+    - StableHLO Specification Draft: spec.md
