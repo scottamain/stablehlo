@@ -1,7 +1,6 @@
 # yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
 
 site_name: StableHLO
-
 repo_url: https://github.com/openxla/stablehlo
 repo_name: openxla/stablehlo
 edit_uri: edit/main/docs/
@@ -12,7 +11,6 @@ theme:
   favicon: website/assets/favicon.ico
   icon:
     repo: fontawesome/brands/github
-    edit: material/file-edit-outline
   font:
     text: Noto
     code: Noto Sans Mono
@@ -31,44 +29,42 @@ theme:
         icon: material/brightness-4
         name: Switch to light mode
   features:
-    - navigation.tabs
-    - navigation.tabs.sticky
-    - navigation.top
-    - navigation.instant
-    - navigation.sections
-    - toc.follow
+    - content.code.copy    # Button to copy code snippets
+    - content.action.edit  # Button to edit doc source
+    - navigation.tabs      # Header tabs for nav items
+    - navigation.top       # "Back to top" button
+    - navigation.instant   # Ajax-style dynamic loading
+    - toc.follow           # Scroll the TOC panel to follow the reader
 
 extra_css:
   - website/stylesheets/openxla.css
 extra_javascript:
+  # Required for MathJax
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 markdown_extensions:
-  - pymdownx.highlight:
-      anchor_linenums: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.superfences
-  - pymdownx.snippets:
-      check_paths: True
-  - def_list
-  - pymdownx.tasklist:
-      custom_checkbox: true
-  - pymdownx.arithmatex:
-      generic: true
-#  - mdx_truly_sane_lists:      # Allows nested lists with single newline
-#      nested_indent: 2
-  - toc:
-      permalink: 'link'
-      toc_depth: 3
+  - pymdownx.superfences    # Nesting code fences and custom fence formats
+  - pymdownx.highlight      # Syntax highlighting for code blocks
+  - pymdownx.inlinehilite   # And inline code (just in case): `#!python range()`
+  - pymdownx.snippets:      # Include files/snippets: --8<-- 'README.md'
+      check_paths: True     #   and fail the build if file not found
+  - def_list                # Basic definition lists
+  - pymdownx.tasklist:      # GitHub-style task lists checkboxes
+      custom_checkbox: true #   and use fancier icons
+  - pymdownx.arithmatex:    # Inline and block equations with MathJax
+      generic: true         #   (required for some reason)
+  - toc:                    # Settings for table of contents
+      permalink: 'link'     # Use Material font's "link" icon; see openxla.css
+      toc_depth: 3          # Default number of headings to show in TOC
+                            #   (can override in md file front matter)
 
 plugins:
-  - search
-  - git-revision-date-localized:
-      enable_creation_date: true
+  - search                         # Search bar
+  - git-revision-date-localized:   # Show file Git revision history at bottom
+      enable_creation_date: true   #   with both created and last-edited date
 
 nav:
   - Home: index.md
   - Specification:
-    - StableHLO Specification Draft: spec.md
+    - StableHLO Specification: spec.md
