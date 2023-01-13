@@ -37,6 +37,10 @@
   --md-accent-fg-color: #6fb7e1; /* OpenXLA light blue */
 }
 
+pre.highlight code {
+  border-radius: 4px;
+}
+
 /* Set icon for anchor links (config must set toc permalink: 'link') */
 :root .headerlink {
     font-family: "Material Icons";

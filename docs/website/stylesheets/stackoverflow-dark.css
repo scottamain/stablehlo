@@ -12,23 +12,6 @@
   Colors: /blob/v0.64.0/lib/css/exports/_stacks-constants-colors.less
 */
 
-[data-md-color-scheme="slate"] .hljs {
-  /* var(--highlight-color) */
-  color: #ffffff;
-  /* var(--highlight-bg) */
-  background: #1c1b1b;
-}
-
-[data-md-color-scheme="slate"] .hljs-subst {
-  /* var(--highlight-color) */
-  color: #ffffff;
-}
-
-[data-md-color-scheme="slate"] .hljs-comment {
-  /* var(--highlight-comment) */
-  color: #999999;
-}
-
 [data-md-color-scheme="slate"] .hljs-keyword,
 [data-md-color-scheme="slate"] .hljs-selector-tag,
 [data-md-color-scheme="slate"] .hljs-meta .hljs-keyword,
