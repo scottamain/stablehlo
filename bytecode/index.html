@@ -57,7 +57,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
   
     
     
@@ -111,7 +111,7 @@
       <form class="md-header__option" data-md-component="palette">
         
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
@@ -119,7 +119,7 @@
           
         
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
@@ -868,39 +868,36 @@ into the bytecode implementations in the Builtin Dialect.</p>
 <h3 id="testing-bytecode-with-round-trips">Testing Bytecode with Round Trips<a class="headerlink" href="#testing-bytecode-with-round-trips" title="Permanent link">link</a></h3>
 <p>Testing that the round-trip of an MLIR file produces the same results is a good
 way to test that the bytecode is implemented properly.</p>
-<div class="highlight"><pre><span></span><code>stablehlo-opt<span class="w"> </span>-emit-bytecode<span class="w"> </span>stablehlo/tests/print_stablehlo.mlir<span class="w"> </span><span class="p">|</span><span class="w"> </span>stablehlo-opt
-</code></pre></div>
+<pre class="highlight"><code class="language-bash">stablehlo-opt -emit-bytecode stablehlo/tests/print_stablehlo.mlir | stablehlo-opt</code></pre>
 <h3 id="find-out-what-attributes-or-types-are-not-encoded">Find out what attributes or types are not encoded<a class="headerlink" href="#find-out-what-attributes-or-types-are-not-encoded" title="Permanent link">link</a></h3>
 <p>Since attributes and types that don't get encoded are instead stored as strings,
 the <code>strings</code> command can be used to see what attributes were missed:</p>
 <p><em>Note: Currently all types/attrs are implemented and log only shows
 the dialect name <code>stablehlo</code> and the unregistered <code>stablehlo.frontend_attributes</code>
 and <code>stablehlo.sharding</code> attributes.</em></p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>stablehlo-opt<span class="w"> </span>-emit-bytecode<span class="w"> </span>file.mlir<span class="w"> </span><span class="p">|</span><span class="w"> </span>strings<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>stablehlo
+<pre class="highlight"><code class="language-bash">$ stablehlo-opt -emit-bytecode file.mlir | strings | grep stablehlo
 stablehlo
 stablehlo.frontend_attributes
-stablehlo.sharding
-</code></pre></div>
+stablehlo.sharding</code></pre>
 <h3 id="debugging-bytecode-with-traces">Debugging Bytecode with Traces<a class="headerlink" href="#debugging-bytecode-with-traces" title="Permanent link">link</a></h3>
 <p>Each read/write function called during bytecoding is traced, and can be viewed
 using the flag <code>-debug-only=stablehlo-bytecode</code> for StableHLO and
 <code>-debug-only=chlo-bytecode</code> for CHLO.</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>stablehlo-opt<span class="w"> </span>-emit-bytecode<span class="w"> </span>-debug-only<span class="o">=</span>stablehlo-bytecode<span class="w"> </span>../tmp.mlir
-Called:<span class="w"> </span>writeType<span class="o">(</span>mlir::Type,<span class="w"> </span>mlir::DialectBytecodeWriter<span class="w"> </span><span class="p">&amp;</span><span class="o">)</span>::<span class="o">(</span>anonymous<span class="w"> </span>class<span class="o">)</span>::operator<span class="o">()(</span>auto<span class="o">)</span><span class="w"> </span>const<span class="w"> </span><span class="o">[</span>type:auto<span class="w"> </span><span class="o">=</span><span class="w"> </span>mlir::stablehlo::TokenType<span class="o">]</span>
-Called:<span class="w"> </span>writeAttribute<span class="o">(</span>mlir::Attribute,<span class="w"> </span>mlir::DialectBytecodeWriter<span class="w"> </span><span class="p">&amp;</span><span class="o">)</span>::<span class="o">(</span>anonymous<span class="w"> </span>class<span class="o">)</span>::operator<span class="o">()(</span>auto<span class="o">)</span><span class="w"> </span>const<span class="w"> </span><span class="o">[</span>attr:auto<span class="w"> </span><span class="o">=</span><span class="w"> </span>mlir::stablehlo::TransposeAttr<span class="o">]</span>
-Called:<span class="w"> </span>writeAttribute<span class="o">(</span>mlir::Attribute,<span class="w"> </span>mlir::DialectBytecodeWriter<span class="w"> </span><span class="p">&amp;</span><span class="o">)</span>::<span class="o">(</span>anonymous<span class="w"> </span>class<span class="o">)</span>::operator<span class="o">()(</span>auto<span class="o">)</span><span class="w"> </span>const<span class="w"> </span><span class="o">[</span>attr:auto<span class="w"> </span><span class="o">=</span><span class="w"> </span>mlir::stablehlo::RngAlgorithmAttr<span class="o">]</span>
-Called:<span class="w"> </span>writeAttribute<span class="o">(</span>mlir::Attribute,<span class="w"> </span>mlir::DialectBytecodeWriter<span class="w"> </span><span class="p">&amp;</span><span class="o">)</span>::<span class="o">(</span>anonymous<span class="w"> </span>class<span class="o">)</span>::operator<span class="o">()(</span>auto<span class="o">)</span><span class="w"> </span>const<span class="w"> </span><span class="o">[</span>attr:auto<span class="w"> </span><span class="o">=</span><span class="w"> </span>mlir::stablehlo::ChannelHandleAttr<span class="o">]</span>
-Called:<span class="w"> </span>writeAttribute<span class="o">(</span>mlir::Attribute,<span class="w"> </span>mlir::DialectBytecodeWriter<span class="w"> </span><span class="p">&amp;</span><span class="o">)</span>::<span class="o">(</span>anonymous<span class="w"> </span>class<span class="o">)</span>::operator<span class="o">()(</span>auto<span class="o">)</span><span class="w"> </span>const<span class="w"> </span><span class="o">[</span>attr:auto<span class="w"> </span><span class="o">=</span><span class="w"> </span>mlir::stablehlo::ChannelHandleAttr<span class="o">]</span>
-Called:<span class="w"> </span>writeAttribute<span class="o">(</span>mlir::Attribute,<span class="w"> </span>mlir::DialectBytecodeWriter<span class="w"> </span><span class="p">&amp;</span><span class="o">)</span>::<span class="o">(</span>anonymous<span class="w"> </span>class<span class="o">)</span>::operator<span class="o">()(</span>auto<span class="o">)</span><span class="w"> </span>const<span class="w"> </span><span class="o">[</span>attr:auto<span class="w"> </span><span class="o">=</span><span class="w"> </span>mlir::stablehlo::TypeExtensionsAttr<span class="o">]</span>
+<pre class="highlight"><code class="language-bash">$ stablehlo-opt -emit-bytecode -debug-only=stablehlo-bytecode ../tmp.mlir
+Called: writeType(mlir::Type, mlir::DialectBytecodeWriter &amp;)::(anonymous class)::operator()(auto) const [type:auto = mlir::stablehlo::TokenType]
+Called: writeAttribute(mlir::Attribute, mlir::DialectBytecodeWriter &amp;)::(anonymous class)::operator()(auto) const [attr:auto = mlir::stablehlo::TransposeAttr]
+Called: writeAttribute(mlir::Attribute, mlir::DialectBytecodeWriter &amp;)::(anonymous class)::operator()(auto) const [attr:auto = mlir::stablehlo::RngAlgorithmAttr]
+Called: writeAttribute(mlir::Attribute, mlir::DialectBytecodeWriter &amp;)::(anonymous class)::operator()(auto) const [attr:auto = mlir::stablehlo::ChannelHandleAttr]
+Called: writeAttribute(mlir::Attribute, mlir::DialectBytecodeWriter &amp;)::(anonymous class)::operator()(auto) const [attr:auto = mlir::stablehlo::ChannelHandleAttr]
+Called: writeAttribute(mlir::Attribute, mlir::DialectBytecodeWriter &amp;)::(anonymous class)::operator()(auto) const [attr:auto = mlir::stablehlo::TypeExtensionsAttr]
 ...
 
-$<span class="w"> </span>stablehlo-opt<span class="w"> </span>-emit-bytecode<span class="w"> </span>-debug-only<span class="o">=</span>stablehlo-bytecode<span class="w"> </span>bytecoded_file.mlir
-Called:<span class="w"> </span>readComparisonDirectionAttr<span class="o">(</span>mlir::DialectBytecodeReader<span class="w"> </span><span class="p">&amp;</span><span class="o">)</span><span class="w"> </span>const
-Called:<span class="w"> </span>readTypeExtensionsAttr<span class="o">(</span>mlir::DialectBytecodeReader<span class="w"> </span><span class="p">&amp;</span><span class="o">)</span><span class="w"> </span>const
-Called:<span class="w"> </span>readChannelHandleAttr<span class="o">(</span>mlir::DialectBytecodeReader<span class="w"> </span><span class="p">&amp;</span><span class="o">)</span><span class="w"> </span>const
-Called:<span class="w"> </span>readChannelHandleAttr<span class="o">(</span>mlir::DialectBytecodeReader<span class="w"> </span><span class="p">&amp;</span><span class="o">)</span><span class="w"> </span>const
-Called:<span class="w"> </span>readRngAlgorithmAttr<span class="o">(</span>mlir::DialectBytecodeReader<span class="w"> </span><span class="p">&amp;</span><span class="o">)</span><span class="w"> </span>const
-</code></pre></div>
+$ stablehlo-opt -emit-bytecode -debug-only=stablehlo-bytecode bytecoded_file.mlir
+Called: readComparisonDirectionAttr(mlir::DialectBytecodeReader &amp;) const
+Called: readTypeExtensionsAttr(mlir::DialectBytecodeReader &amp;) const
+Called: readChannelHandleAttr(mlir::DialectBytecodeReader &amp;) const
+Called: readChannelHandleAttr(mlir::DialectBytecodeReader &amp;) const
+Called: readRngAlgorithmAttr(mlir::DialectBytecodeReader &amp;) const</code></pre>
 <h3 id="adding-bytecode-for-a-new-type-attribute">Adding Bytecode for a New Type / Attribute<a class="headerlink" href="#adding-bytecode-for-a-new-type-attribute" title="Permanent link">link</a></h3>
 <p>Adding bytecode for a new type or attribute is simple. In the file
 <code>StablehloBytecode.cpp</code> or <code>ChloBytecode.cpp</code> search for the term <code>TO ADD
@@ -977,6 +974,10 @@ value.</p>
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../website/javascript/highlight.min.js"></script>
+      
+        <script src="../website/javascript/highlight-mlir.js"></script>
       
     
   </body>

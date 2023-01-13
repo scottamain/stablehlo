@@ -57,7 +57,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
   
     
     
@@ -111,7 +111,7 @@
       <form class="md-header__option" data-md-component="palette">
         
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
@@ -119,7 +119,7 @@
           
         
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
@@ -562,8 +562,7 @@ for storage. The last one is used for storing elements with complex types.</p>
 </ul>
 <h2 id="working-of-the-interpreter">Working of the interpreter<a class="headerlink" href="#working-of-the-interpreter" title="Permanent link">link</a></h2>
 <p>The entry function to the interpreter is</p>
-<div class="highlight"><pre><span></span><code><span class="n">SmallVector</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;</span><span class="w"> </span><span class="n">eval</span><span class="p">(</span><span class="n">func</span><span class="o">::</span><span class="n">FuncOp</span><span class="w"> </span><span class="n">func</span><span class="p">,</span><span class="w"> </span><span class="n">ArrayRef</span><span class="o">&lt;</span><span class="n">Tensor</span><span class="o">&gt;</span><span class="w"> </span><span class="n">args</span><span class="p">);</span>
-</code></pre></div>
+<pre class="highlight"><code class="language-C++">SmallVector&lt;Tensor&gt; eval(func::FuncOp func, ArrayRef&lt;Tensor&gt; args);</code></pre>
 <p>which does the following:</p>
 <ol>
 <li>Tracks the SSA arguments of <code>func</code> and their associated runtime <code>Tensor</code>
@@ -578,15 +577,14 @@ execution semantics of the op. Following is an example for <code>stablehlo::AddO
 In the example, individual elements of the <code>lhs</code> and <code>rhs</code> tensors are pairwise
 extracted as <code>Element</code> objects which are then added. The result of the addition,
 an <code>Element</code> object, is stored in the final <code>result</code> tensor.</p>
-<div class="highlight"><pre><span></span><code><span class="n">Tensor</span><span class="w"> </span><span class="nf">eval</span><span class="p">(</span><span class="n">AddOp</span><span class="w"> </span><span class="n">op</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Tensor</span><span class="w"> </span><span class="o">&amp;</span><span class="n">lhs</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Tensor</span><span class="w"> </span><span class="o">&amp;</span><span class="n">rhs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">Tensor</span><span class="w"> </span><span class="n">result</span><span class="p">(</span><span class="n">op</span><span class="p">.</span><span class="n">getType</span><span class="p">());</span>
+<pre class="highlight"><code class="language-C++">Tensor eval(AddOp op, const Tensor &amp;lhs, const Tensor &amp;rhs) {
+  Tensor result(op.getType());
 
-<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">result</span><span class="p">.</span><span class="n">index_begin</span><span class="p">();</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">result</span><span class="p">.</span><span class="n">index_end</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">it</span><span class="p">)</span>
-<span class="w">    </span><span class="n">result</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="o">*</span><span class="n">it</span><span class="p">,</span><span class="w"> </span><span class="n">lhs</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="o">*</span><span class="n">it</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rhs</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="o">*</span><span class="n">it</span><span class="p">));</span>
+  for (auto it = result.index_begin(); it != result.index_end(); ++it)
+    result.set(*it, lhs.get(*it) + rhs.get(*it));
 
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
+  return result;
+}</code></pre>
 <p>Overall, the design of the interpreter is optimized for readability of
 implementations of <code>eval</code> functions for individual ops because it's meant to
 serve as a reference implementation for StableHLO. For example, instead of
@@ -597,24 +595,23 @@ we encapsulate details about how different element types are handled in
 <p>We can use the interpreter mechanism to fold operations with constant operand
 values. The following code snippet demonstrates an idea of the implementation
 for folding <code>stablehlo::AddOp</code> with floating-point typed operands:</p>
-<div class="highlight"><pre><span></span><code><span class="n">OpFoldResult</span><span class="w"> </span><span class="nf">AddOp::fold</span><span class="p">(</span><span class="n">ArrayRef</span><span class="o">&lt;</span><span class="n">Attribute</span><span class="o">&gt;</span><span class="w"> </span><span class="n">attrs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">DenseElementsAttr</span><span class="w"> </span><span class="n">lhsData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">attrs</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">dyn_cast</span><span class="o">&lt;</span><span class="n">DenseElementsAttr</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="w">  </span><span class="n">DenseElementsAttr</span><span class="w"> </span><span class="n">rhsData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">attrs</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">dyn_cast</span><span class="o">&lt;</span><span class="n">DenseElementsAttr</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">lhsData</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="n">rhsData</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="p">{};</span>
+<pre class="highlight"><code class="language-C++">OpFoldResult AddOp::fold(ArrayRef&lt;Attribute&gt; attrs) {
+  DenseElementsAttr lhsData = attrs[0].dyn_cast&lt;DenseElementsAttr&gt;();
+  DenseElementsAttr rhsData = attrs[1].dyn_cast&lt;DenseElementsAttr&gt;();
+  if (!lhsData || !rhsData) return {};
 
-<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">lhs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Tensor</span><span class="p">(</span><span class="n">lhsData</span><span class="p">);</span>
-<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">rhs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Tensor</span><span class="p">(</span><span class="n">rhsData</span><span class="p">);</span>
-<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">eval</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">lhs</span><span class="p">,</span><span class="w"> </span><span class="n">rhs</span><span class="p">);</span>
+  auto lhs = Tensor(lhsData);
+  auto rhs = Tensor(rhsData);
+  auto result = eval(*this, lhs, rhs);
 
-<span class="w">  </span><span class="n">SmallVector</span><span class="o">&lt;</span><span class="n">APFloat</span><span class="o">&gt;</span><span class="w"> </span><span class="n">values</span><span class="p">;</span>
-<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">result</span><span class="p">.</span><span class="n">getNumElements</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">Element</span><span class="w"> </span><span class="n">element</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">result</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
-<span class="w">    </span><span class="n">values</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">element</span><span class="p">.</span><span class="n">getValue</span><span class="p">().</span><span class="n">cast</span><span class="o">&lt;</span><span class="n">FloatAttr</span><span class="o">&gt;</span><span class="p">().</span><span class="n">getValue</span><span class="p">());</span>
-<span class="w">  </span><span class="p">}</span>
+  SmallVector&lt;APFloat&gt; values;
+  for (auto i = 0; i &lt; result.getNumElements(); ++i) {
+    Element element = result.get(i);
+    values.push_back(element.getValue().cast&lt;FloatAttr&gt;().getValue());
+  }
 
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">DenseElementsAttr</span><span class="o">::</span><span class="n">get</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">getType</span><span class="p">(),</span><span class="w"> </span><span class="n">values</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
+  return DenseElementsAttr::get(result.getType(), values);
+}</code></pre>
 <p>At the moment, we aren't actively working on integrating the interpreter into
 constant folding because we aren't planning to implement folder for StableHLO.
 However, in the future, we are planning to leverage the interpreter for constant
@@ -628,17 +625,16 @@ against the user-provided expected data values.</p>
 <p>In the current implementation, we package the inputs (MLIR program + input data
 values) and outputs in a
 <a href="https://llvm.org/docs/CommandGuide/lit.html">lit-based</a> test as follows:</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// CHECK-LABEL: Evaluated results of function: add_op_test_ui4</span>
-<span class="n">func</span><span class="p">.</span><span class="n">func</span><span class="w"> </span><span class="err">@</span><span class="n">add_op_test_ui4</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">tensor</span><span class="o">&lt;</span><span class="mi">2</span><span class="n">xui4</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="o">%</span><span class="mi">0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stablehlo</span><span class="p">.</span><span class="n">constant</span><span class="w"> </span><span class="n">dense</span><span class="o">&lt;</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="o">&gt;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">tensor</span><span class="o">&lt;</span><span class="mi">2</span><span class="n">xui4</span><span class="o">&gt;</span>
-<span class="w">  </span><span class="o">%</span><span class="mi">1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stablehlo</span><span class="p">.</span><span class="n">constant</span><span class="w"> </span><span class="n">dense</span><span class="o">&lt;</span><span class="p">[</span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span><span class="o">&gt;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">tensor</span><span class="o">&lt;</span><span class="mi">2</span><span class="n">xui4</span><span class="o">&gt;</span>
-<span class="w">  </span><span class="o">%</span><span class="mi">2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stablehlo</span><span class="p">.</span><span class="n">add</span><span class="w"> </span><span class="o">%</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="o">%</span><span class="mi">1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">tensor</span><span class="o">&lt;</span><span class="mi">2</span><span class="n">xui4</span><span class="o">&gt;</span>
-<span class="w">  </span><span class="n">func</span><span class="p">.</span><span class="k">return</span><span class="w"> </span><span class="o">%</span><span class="mi">2</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">tensor</span><span class="o">&lt;</span><span class="mi">2</span><span class="n">xui4</span><span class="o">&gt;</span>
-<span class="w">  </span><span class="c1">// CHECK-NEXT:  tensor&lt;2xui4&gt;</span>
-<span class="w">  </span><span class="c1">// CHECK-NEXT:    15 : ui4</span>
-<span class="w">  </span><span class="c1">// CHECK-NEXT:    5 : ui4</span>
-<span class="p">}</span>
-</code></pre></div>
+<pre class="highlight"><code class="language-C++">// CHECK-LABEL: Evaluated results of function: add_op_test_ui4
+func.func @add_op_test_ui4() -&gt; tensor&lt;2xui4&gt; {
+  %0 = stablehlo.constant dense&lt;[0, 2]&gt; : tensor&lt;2xui4&gt;
+  %1 = stablehlo.constant dense&lt;[15, 3]&gt; : tensor&lt;2xui4&gt;
+  %2 = stablehlo.add %0, %1 : tensor&lt;2xui4&gt;
+  func.return %2 : tensor&lt;2xui4&gt;
+  // CHECK-NEXT:  tensor&lt;2xui4&gt;
+  // CHECK-NEXT:    15 : ui4
+  // CHECK-NEXT:    5 : ui4
+}</code></pre>
 <p>A test utility <code>stablehlo-interpreter</code>
 (<a href="https://github.com/openxla/stablehlo/tree/main/stablehlo/tools/StablehloInterpreterMain.cpp">code</a>)
 is responsible for parsing the program, interpreting each function, and
@@ -714,6 +710,10 @@ interpret_*.mlir).</p>
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../website/javascript/highlight.min.js"></script>
+      
+        <script src="../website/javascript/highlight-mlir.js"></script>
       
     
   </body>
