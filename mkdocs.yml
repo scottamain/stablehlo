@@ -18,13 +18,11 @@ theme:
   palette:
     # Palette toggle for light mode
     - scheme: default
-      primary: black
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
     # Palette toggle for dark mode
     - scheme: slate
-      primary: black
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
@@ -39,16 +37,20 @@ theme:
 extra_css:
   - website/stylesheets/openxla.css
 extra_javascript:
-  # Required for MathJax
+  # MathJax
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  # Highlight.js
+  - website/javascript/highlight.min.js
+  - website/javascript/highlight-mlir.js
 
 markdown_extensions:
   - pymdownx.superfences    # Nesting code fences and custom fence formats
-  - pymdownx.highlight      # Syntax highlighting for code blocks
+  - pymdownx.highlight:     # Syntax highlighting for code blocks
+      use_pygments: false   #   Use highlight.js to get MLIR syntax support
   - pymdownx.inlinehilite   # And inline code (just in case): `#!python range()`
   - pymdownx.snippets:      # Include files/snippets: --8<-- 'README.md'
-      check_paths: True     #   and fail the build if file not found
+      check_paths: true     #   and fail the build if file not found
   - def_list                # Basic definition lists
   - pymdownx.tasklist:      # GitHub-style task lists checkboxes
       custom_checkbox: true #   and use fancier icons
