@@ -72,7 +72,7 @@ func.func @dynamic_slice(%arg0: tensor<3x4xi32>, %arg1: tensor<i64>, %arg2: tens
 // -----
 
 // CHECK-LABEL: @pad
-func.func @pad(%arg0: tensor<1x2x3xf16>, %arg1: tensor<f16>) -> tensor<2x4x7xf16> {
+func.func @pad(%arg0: tensor<1x2x3xf16>, %arg1: tensor<f16>) -> tensor<2x4x7xindex> {
   %0 = "stablehlo.pad"(%arg0, %arg1) {
     edge_padding_high = dense<[1, 1, 0]> : tensor<3xi64>,
     edge_padding_low = dense<[0, 1, 2]> : tensor<3xi64>,
@@ -80,7 +80,7 @@ func.func @pad(%arg0: tensor<1x2x3xf16>, %arg1: tensor<f16>) -> tensor<2x4x7xf16
   } : (tensor<1x2x3xf16>, tensor<f16>) -> tensor<2x4x7xf16>
   %1 = "hlo_test_infer.get_return_types"(%0) : (tensor<2x4x7xf16>) -> tensor<2x4x7xindex>
   // CHECK: %1 = "hlo_test_infer.return_types"(%0) {types0 = tensor<2x4x7xf16>} : (tensor<2x4x7xf16>) -> tensor<2x4x7xindex>
-  func.return %0 : tensor<2x4x7xf16>
+  func.return %1 : tensor<2x4x7xindex>
 }
 
 // -----
@@ -88,9 +88,8 @@ func.func @pad(%arg0: tensor<1x2x3xf16>, %arg1: tensor<f16>) -> tensor<2x4x7xf16
 // CHECK-LABEL: @cholesky
 func.func @cholesky(%arg0: tensor<1x2x2xf32>) -> tensor<1x2x2xindex> {
   %0 = "stablehlo.cholesky"(%arg0) { lower = true } : (tensor<1x2x2xf32>) -> tensor<1x2x2xf32>
-  %1 = "hlo_test_infer.get_return_type_components"(%0)
-      : (tensor<1x2x2xf32>) -> tensor<1x2x2xindex>
-// CHECK: %1 = "hlo_test_infer.return_type_components"(%0) {dims0 = "[1, 2, 2]", element_type0 = f32} : (tensor<1x2x2xf32>) -> tensor<1x2x2xindex>
+  %1 = "hlo_test_infer.get_return_type_components"(%0) : (tensor<1x2x2xf32>) -> tensor<1x2x2xindex>
+  // CHECK: %1 = "hlo_test_infer.return_type_components"(%0) {dims0 = "[1, 2, 2]", element_type0 = f32} : (tensor<1x2x2xf32>) -> tensor<1x2x2xindex>
   func.return %1: tensor<1x2x2xindex>
 }
 
@@ -287,7 +286,7 @@ func.func @triangular_solve(%arg0: tensor<10x5x4x4xf32>, %arg1: tensor<10x5x4x4x
 // -----
 
 // CHECK-LABEL: func @if
-func.func @if(%pred : tensor<i1>, %branch_operand : tensor<2xf32>, %wrong_type : tensor<2xf32>) {
+func.func @if(%pred : tensor<i1>, %branch_operand : tensor<2xf32>, %wrong_type : tensor<2xf32>) -> tensor<2xindex> {
   %0 = "stablehlo.if"(%pred) ({
       "stablehlo.return"(%wrong_type) : (tensor<2xf32>) -> ()
     }, {
@@ -295,13 +294,13 @@ func.func @if(%pred : tensor<i1>, %branch_operand : tensor<2xf32>, %wrong_type :
     }) : (tensor<i1>) -> tensor<2xf32>
   // CHECK: (tensor<2xf32>) -> tensor<2xindex>
   %1 = "hlo_test_infer.get_return_type_components"(%0) : (tensor<2xf32>) -> tensor<2xindex>
-  func.return
+  func.return %1 : tensor<2xindex>
 }
 
 // -----
 
 // CHECK-LABEL: func @case
-func.func @case(%index : tensor<i32>, %branch_operand : tensor<2xf32>) {
+func.func @case(%index : tensor<i32>, %branch_operand : tensor<2xf32>)  -> tensor<2xindex> {
   %0 = "stablehlo.case"(%index) ({
       "stablehlo.return"(%branch_operand) : (tensor<2xf32>) -> ()
   }, {
@@ -309,13 +308,13 @@ func.func @case(%index : tensor<i32>, %branch_operand : tensor<2xf32>) {
   }) : (tensor<i32>) -> tensor<2xf32>
   // CHECK: (tensor<2xf32>) -> tensor<2xindex>
   %1 = "hlo_test_infer.get_return_type_components"(%0) : (tensor<2xf32>) -> tensor<2xindex>
-  func.return
+  func.return %1 : tensor<2xindex>
 }
 
 // -----
 
 // CHECK-LABEL: func @sort
-func.func @sort(%input0: tensor<16x16xf32>, %input1: tensor<16x16xi32>) {
+func.func @sort(%input0: tensor<16x16xf32>, %input1: tensor<16x16xi32>) -> (tensor<16x16xindex>, tensor<16x16xindex>) {
   %0:2 = "stablehlo.sort"(%input0, %input1) ({
   ^bb0(%arg0: tensor<f32>, %arg1: tensor<f32>, %arg2: tensor<i32>, %arg3: tensor<i32>):
     %7 = "stablehlo.compare"(%arg0, %arg1) {comparison_direction = #stablehlo<comparison_direction GT>} : (tensor<f32>, tensor<f32>) -> tensor<i1>
@@ -325,7 +324,7 @@ func.func @sort(%input0: tensor<16x16xf32>, %input1: tensor<16x16xi32>) {
   %1 = "hlo_test_infer.get_return_type_components"(%0#0) : (tensor<16x16xf32>) -> tensor<16x16xindex>
   // CHECK: (tensor<16x16xi32>) -> tensor<16x16xindex>
   %2 = "hlo_test_infer.get_return_type_components"(%0#1) : (tensor<16x16xi32>) -> tensor<16x16xindex>
-  func.return
+  func.return %1, %2 : tensor<16x16xindex>, tensor<16x16xindex>
 }
 
 // -----
@@ -378,7 +377,7 @@ func.func @dynamic_update_slice(%arg0: tensor<4x4xi32>, %arg1: tensor<2x2xi32>, 
 
 // -----
 
-func.func @dynamic_update_slice(%input: tensor<3x?x?xi64, #stablehlo.type_extensions<bounds = [?, ?, 5]>>, %update: tensor<1x4x3xi64>, %start1: tensor<i64>, %start2: tensor<i64>, %start3 : tensor<i64>) ->  tensor<*xindex> {
+func.func @dynamic_update_slice(%input: tensor<3x?x?xi64, #stablehlo.type_extensions<bounds = [?, ?, 5]>>, %update: tensor<1x4x3xi64>, %start1: tensor<i64>, %start2: tensor<i64>, %start3 : tensor<i64>) -> tensor<*xindex> {
   %0 = "stablehlo.dynamic_update_slice"(%input, %update, %start1, %start2, %start3) : (tensor<3x?x?xi64, #stablehlo.type_extensions<bounds = [?, ?, 5]>>, tensor<1x4x3xi64>, tensor<i64>, tensor<i64>, tensor<i64>) -> tensor<3x?x?xi64>
   %1 = "hlo_test_infer.get_return_types"(%0) : (tensor<3x?x?xi64>) -> tensor<*xindex>
   // CHECK: types0 = tensor<3x?x?xi64, #stablehlo.type_extensions<bounds = [?, ?, 5]>>
@@ -495,7 +494,7 @@ func.func @tanh_sparsity(%arg0: tensor<10x10xf32, #CSR>) -> tensor<10x10xindex> 
   %0 = "stablehlo.tanh"(%arg0) : (tensor<10x10xf32, #CSR>) -> tensor<10x10xf32>
   %1 = "hlo_test_infer.get_return_types"(%0)
       : (tensor<10x10xf32>) -> tensor<10x10xindex>
-// CHECK: %1 = "hlo_test_infer.return_types"(%0) {types0 = tensor<10x10xf32, {{.*}}>} : (tensor<10x10xf32>) -> tensor<10x10xindex>
+  // CHECK: %1 = "hlo_test_infer.return_types"(%0) {types0 = tensor<10x10xf32, {{.*}}>} : (tensor<10x10xf32>) -> tensor<10x10xindex>
   func.return %1 : tensor<10x10xindex>
 }
 
@@ -510,7 +509,7 @@ func.func @abs_sparsity(%arg0: tensor<10x10xf32, #CSR>) -> tensor<10x10xindex> {
   %0 = "stablehlo.abs"(%arg0) : (tensor<10x10xf32, #CSR>) -> tensor<10x10xf32>
   %1 = "hlo_test_infer.get_return_types"(%0)
       : (tensor<10x10xf32>) -> tensor<10x10xindex>
-// CHECK: %1 = "hlo_test_infer.return_types"(%0) {types0 = tensor<10x10xf32, {{.*}}>} : (tensor<10x10xf32>) -> tensor<10x10xindex>
+  // CHECK: %1 = "hlo_test_infer.return_types"(%0) {types0 = tensor<10x10xf32, {{.*}}>} : (tensor<10x10xf32>) -> tensor<10x10xindex>
   func.return %1 : tensor<10x10xindex>
 }
 
@@ -525,7 +524,7 @@ func.func @real_sparsity(%arg0: tensor<10x10xcomplex<f32>, #CSR>) -> tensor<10x1
   %0 = "stablehlo.real"(%arg0) : (tensor<10x10xcomplex<f32>, #CSR>) -> tensor<10x10xf32>
   %1 = "hlo_test_infer.get_return_types"(%0)
       : (tensor<10x10xf32>) -> tensor<10x10xindex>
-// CHECK: %1 = "hlo_test_infer.return_types"(%0) {types0 = tensor<10x10xf32, {{.*}}>} : (tensor<10x10xf32>) -> tensor<10x10xindex>
+  // CHECK: %1 = "hlo_test_infer.return_types"(%0) {types0 = tensor<10x10xf32, {{.*}}>} : (tensor<10x10xf32>) -> tensor<10x10xindex>
   func.return %1 : tensor<10x10xindex>
 }
 
@@ -540,7 +539,7 @@ func.func @imag_sparsity(%arg0: tensor<10x10xcomplex<f32>, #CSR>) -> tensor<10x1
   %0 = "stablehlo.imag"(%arg0) : (tensor<10x10xcomplex<f32>, #CSR>) -> tensor<10x10xf32>
   %1 = "hlo_test_infer.get_return_types"(%0)
       : (tensor<10x10xf32>) -> tensor<10x10xindex>
-// CHECK: %1 = "hlo_test_infer.return_types"(%0) {types0 = tensor<10x10xf32, {{.*}}>} : (tensor<10x10xf32>) -> tensor<10x10xindex>
+  // CHECK: %1 = "hlo_test_infer.return_types"(%0) {types0 = tensor<10x10xf32, {{.*}}>} : (tensor<10x10xf32>) -> tensor<10x10xindex>
   func.return %1 : tensor<10x10xindex>
 }
 
@@ -555,7 +554,7 @@ func.func @complex_sparsity(%arg0: tensor<10x10xf32, #CSR>, %arg1: tensor<10x10x
   %0 = "stablehlo.complex"(%arg0, %arg1) : (tensor<10x10xf32, #CSR>, tensor<10x10xf32, #CSR>) -> tensor<10x10xcomplex<f32>>
   %1 = "hlo_test_infer.get_return_types"(%0)
       : (tensor<10x10xcomplex<f32>>) -> tensor<10x10xindex>
-// CHECK: %1 = "hlo_test_infer.return_types"(%0) {types0 = tensor<10x10xcomplex<f32>, {{.*}}>} : (tensor<10x10xcomplex<f32>>) -> tensor<10x10xindex>
+  // CHECK: %1 = "hlo_test_infer.return_types"(%0) {types0 = tensor<10x10xcomplex<f32>, {{.*}}>} : (tensor<10x10xcomplex<f32>>) -> tensor<10x10xindex>
   func.return %1 : tensor<10x10xindex>
 }
 
@@ -992,6 +991,26 @@ func.func @concat_bounds_unranked_c1(
 
 // -----
 
+// CHECK-LABEL: while_bounds
+func.func @while_bounds(
+  %while_arg_1: tensor<2x?xi32, #stablehlo.type_extensions<bounds = [?, 4]>>,
+  %while_arg_2: tensor<3xf32>) -> tensor<*xindex> {
+  %1:2 = "stablehlo.while"(%while_arg_1, %while_arg_2) ({
+  ^bb0(%arg1: tensor<2x?xi32, #stablehlo.type_extensions<bounds = [?, 4]>>, %arg2: tensor<3xf32>):
+    %2 = stablehlo.constant dense<1> : tensor<i1>
+    "stablehlo.return"(%2) : (tensor<i1>) -> ()
+  },  {
+  ^bb0(%arg1: tensor<2x?xi32, #stablehlo.type_extensions<bounds = [?, 4]>>, %arg2: tensor<3xf32>):
+    "stablehlo.return"(%arg1, %arg2) : (tensor<2x?xi32, #stablehlo.type_extensions<bounds = [?, 4]>>, tensor<3xf32>) -> ()
+  }) : (tensor<2x?xi32, #stablehlo.type_extensions<bounds = [?, 4]>>, tensor<3xf32>) -> (tensor<*xi32>, tensor<*xf32>)
+  // CHECK: types0 = tensor<2x?xi32, #stablehlo.type_extensions<bounds = [?, 4]>>,
+  // CHECK-SAME: types1 = tensor<3xf32>
+  %3 = "hlo_test_infer.get_return_types"(%1) : (tensor<*xi32>) -> tensor<*xindex>
+  func.return %3 : tensor<*xindex>
+}
+
+// -----
+
 // CHECK-LABEL: @gather
 // CHECK-SAME: (%[[ARG0:.*]]: tensor<3x4x2xi32>, %[[ARG1:.*]]: tensor<?x3x2xi64>
 func.func @gather(%operand : tensor<3x4x2xi32>, %start_indices : tensor<?x3x2xi64>) -> tensor<4xi64> {
@@ -1036,6 +1055,14 @@ func.func @pad(%arg0: tensor<?x48x48x32xf32>) -> tensor<4xindex> {
 }
 
 // -----
+
+// CHECK-LABEL: func @cholesky_bounds
+func.func @cholesky_bounds(%input: tensor<2x?x?xf32, #stablehlo.type_extensions<bounds = [?, 5, ?]>>) -> tensor<*xindex> {
+  %0 = "stablehlo.cholesky"(%input) { lower = true } : (tensor<2x?x?xf32, #stablehlo.type_extensions<bounds = [?, 5, ?]>>) -> tensor<*xf32>
+  // CHECK: types0 = tensor<2x?x?xf32, #stablehlo.type_extensions<bounds = [?, 5, ?]>>
+  %1 = "hlo_test_infer.get_return_types"(%0) : (tensor<*xf32>) -> tensor<*xindex>
+  func.return %1 : tensor<*xindex>
+}
 
 // CHECK-LABEL: func @concatenate
 // CHECK-SAME: (%[[ARG0:.*]]: tensor<?x?xi32>, %[[ARG1:.*]]: tensor<?x?xi32>, %[[ARG2:.*]]: tensor<?x?xi32>
@@ -1165,7 +1192,7 @@ func.func @broadcast(%arg0: tensor<?xi32>) -> tensor<3xindex> {
 
 // CHECK-LABEL: func @transpose
 // CHECK-SAME: (%[[ARG0:.*]]: tensor<?x?x?x?xi32>
-func.func @transpose(%arg0: tensor<?x?x?x?xi32>) ->  tensor<4xindex> {
+func.func @transpose(%arg0: tensor<?x?x?x?xi32>) -> tensor<4xindex> {
   // CHECK: %[[C0:.*]] = arith.constant 0 : index
   // CHECK: %[[C1:.*]] = arith.constant 1 : index
   // CHECK: %[[C2:.*]] = arith.constant 2 : index
@@ -1192,4 +1219,24 @@ func.func @dynamic_iota(%arg0: tensor<1xindex>) -> tensor<1xindex> {
   } : (tensor<1xindex>) -> tensor<?xf32>
   %1 = "hlo_test_infer.reify_return_type_shapes"(%result): (tensor<?xf32>) -> tensor<1xindex>
   func.return %1: tensor<1xindex>
+}
+
+// -----
+
+// CHECK-LABEL: @sort_bounds_and_unknown_rank
+func.func @sort_bounds_and_unknown_rank(%input0: tensor<*xf32>, %input1: tensor<5x?x?xi32, #stablehlo.type_extensions<bounds = [?, 7, 6]>>) {
+  %0, %1 = "stablehlo.sort"(%input0, %input1) ({
+  ^bb0(%arg0: tensor<f32>, %arg1: tensor<f32>, %arg2: tensor<i32>, %arg3: tensor<i32>):
+    %pred = "stablehlo.compare"(%arg0, %arg1) {
+      comparison_direction = #stablehlo<comparison_direction GT>
+    } : (tensor<f32>, tensor<f32>) -> tensor<i1>
+    "stablehlo.return"(%pred) : (tensor<i1>) -> ()
+  }) { dimension = 1 : i64, is_stable = true } : (
+    tensor<*xf32>,
+    tensor<5x?x?xi32, #stablehlo.type_extensions<bounds = [?, 7, 6]>>
+  ) -> (tensor<*xf32>, tensor<*xi32>)
+  // CHECK: types0 = tensor<*xf32>
+  // CHECK-SAME: types1 = tensor<5x?x?xi32, #stablehlo.type_extensions<bounds = [?, 7, 6]>>
+  %2 = "hlo_test_infer.get_return_types"(%0) : (tensor<*xf32>) -> tensor<*xindex>
+  func.return
 }

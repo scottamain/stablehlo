@@ -1418,7 +1418,8 @@ LogicalResult ReduceWindowOp::verify() {
 //===----------------------------------------------------------------------===//
 
 LogicalResult ReducePrecisionOp::verify() {
-  return hlo::verifyReducePrecisionOp(getLoc(), getExponentBits());
+  return hlo::verifyReducePrecisionOp(getLoc(), getExponentBits(),
+                                      getMantissaBits());
 }
 
 //===----------------------------------------------------------------------===//
@@ -1814,6 +1815,13 @@ LogicalResult ReturnOp::inferReturnTypes(
     SmallVectorImpl<Type>& inferredReturnTypes) {
   ReturnOp::Adaptor adaptor(operands, attributes);
   return hlo::inferReturnOp(location, inferredReturnTypes);
+}
+
+//===----------------------------------------------------------------------===//
+// ReverseOp
+//===----------------------------------------------------------------------===//
+LogicalResult ReverseOp::verify() {
+  return hlo::verifyReverseOp(getLoc(), getOperand(), getDimensions());
 }
 
 //===----------------------------------------------------------------------===//
