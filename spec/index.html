@@ -17,7 +17,7 @@
     
     
       
-        <title>StableHLO Specification - StableHLO</title>
+        <title>Specification - StableHLO</title>
       
     
     
@@ -81,18 +81,83 @@
     </div>
     
     
-      
+      <!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
 
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- OpenXLA override just to add logo_link_name in the link to home -->
+
+<!-- Determine base classes -->
+
+
+
+<!-- Header -->
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="StableHLO" class="md-header__button md-logo" aria-label="StableHLO" data-md-component="logo">
-      
-  <img src="../website/assets/openxla-logo-lockup-white.svg" alt="logo">
+  <nav
+    class="md-header__inner md-grid"
+    aria-label="Header"
+  >
+
+    <!-- Link to home -->
+    <a
+      href="https://scottamain.github.io/community"
+      title="OpenXLA Project"
+      class="md-header__button md-logo"
+      aria-label="OpenXLA Project"
+      data-md-component="logo"
+    >
+      <!--
+  Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Logo (customized to provide img alt text) -->
+
+  <img src="../website/assets/openxla-logo-lockup-white.svg" alt="OpenXLA" />
 
     </a>
+
+    <!-- Button to open drawer -->
     <label class="md-header__button md-icon" for="__drawer">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
     </label>
+
+    <!-- Header title -->
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
@@ -103,38 +168,80 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              StableHLO Specification
+              Specification
             
           </span>
         </div>
       </div>
     </div>
+
+    <!-- Color palette -->
     
       <form class="md-header__option" data-md-component="palette">
         
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          <input
+            class="md-option"
+            data-md-color-media=""
+            data-md-color-scheme="default"
+            data-md-color-primary=""
+            data-md-color-accent=""
+            
+              aria-label="Switch to dark mode"
+            
+            type="radio"
+            name="__palette"
+            id="__palette_1"
+          />
           
-            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+            <label
+              class="md-header__button md-icon"
+              title="Switch to dark mode"
+              for="__palette_2"
+              hidden
+            >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18V6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-2.69L23.31 12 20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69Z"/></svg>
             </label>
           
         
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          <input
+            class="md-option"
+            data-md-color-media=""
+            data-md-color-scheme="slate"
+            data-md-color-primary=""
+            data-md-color-accent=""
+            
+              aria-label="Switch to light mode"
+            
+            type="radio"
+            name="__palette"
+            id="__palette_2"
+          />
           
-            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+            <label
+              class="md-header__button md-icon"
+              title="Switch to light mode"
+              for="__palette_1"
+              hidden
+            >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18V6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-2.69L23.31 12 20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69Z"/></svg>
             </label>
           
         
       </form>
     
+
+    <!-- Site language selector -->
     
+
+    <!-- Button to open search modal -->
     
       <label class="md-header__button md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
       </label>
+
+      <!-- Search interface -->
       <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
@@ -165,6 +272,8 @@
   </div>
 </div>
     
+
+    <!-- Repository information -->
     
       <div class="md-header__source">
         <a href="https://github.com/openxla/stablehlo" title="Go to repository" class="md-source" data-md-component="source">
@@ -179,6 +288,8 @@
       </div>
     
   </nav>
+
+  <!-- Navigation tabs (sticky) -->
   
 </header>
     
@@ -211,15 +322,11 @@
   
 
 
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="./" class="md-tabs__link md-tabs__link--active">
-        Specification
-      </a>
-    </li>
-  
+  <li class="md-tabs__item">
+    <a href="./" class="md-tabs__link md-tabs__link--active">
+      Specification
+    </a>
+  </li>
 
       
     </ul>
@@ -245,9 +352,32 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="StableHLO" class="md-nav__button md-logo" aria-label="StableHLO" data-md-component="logo">
-      
-  <img src="../website/assets/openxla-logo-lockup-white.svg" alt="logo">
+    <a href="https://scottamain.github.io/community" title="StableHLO" class="md-nav__button md-logo" aria-label="StableHLO" data-md-component="logo">
+      <!--
+  Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Logo (customized to provide img alt text) -->
+
+  <img src="../website/assets/openxla-logo-lockup-white.svg" alt="OpenXLA" />
 
     </a>
     StableHLO
@@ -291,34 +421,6 @@
     
   
   
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_2">
-          Specification
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Specification" data-md-level="1">
-        <label class="md-nav__title" for="__nav_2">
-          <span class="md-nav__icon md-icon"></span>
-          Specification
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-    
-  
-  
     <li class="md-nav__item md-nav__item--active">
       
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
@@ -328,12 +430,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          StableHLO Specification
+          Specification
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        StableHLO Specification
+        Specification
       </a>
       
         
@@ -422,36 +524,15 @@ toc_depth: 2
 
  -->
 
-        
-          <!--
-  Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
 
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files (the "Software"), to
-  deal in the Software without restriction, including without limitation the
-  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-  sell copies of the Software, and to permit persons to whom the Software is
-  furnished to do so, subject to the following conditions:
-
-  The above copyright notice and this permission notice shall be included in
-  all copies or substantial portions of the Software.
-
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
-  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-  IN THE SOFTWARE.
--->
-
-<!-- Allow each page to override toc_depth. For example, at the top of MD file:
-
----
-toc_depth: 2
----
-
- -->
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -484,36 +565,15 @@ toc_depth: 2
 
  -->
 
-        
-          <!--
-  Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#identifiers" class="md-nav__link">
+    Identifiers
+  </a>
 
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files (the "Software"), to
-  deal in the Software without restriction, including without limitation the
-  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-  sell copies of the Software, and to permit persons to whom the Software is
-  furnished to do so, subject to the following conditions:
-
-  The above copyright notice and this permission notice shall be included in
-  all copies or substantial portions of the Software.
-
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
-  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-  IN THE SOFTWARE.
--->
-
-<!-- Allow each page to override toc_depth. For example, at the top of MD file:
-
----
-toc_depth: 2
----
-
- -->
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -545,6 +605,98 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#types" class="md-nav__link">
+    Types
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
+        
+          <!--
+  Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Allow each page to override toc_depth. For example, at the top of MD file:
+
+---
+toc_depth: 2
+---
+
+ -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#operations" class="md-nav__link">
+    Operations
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
+        
+          <!--
+  Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Allow each page to override toc_depth. For example, at the top of MD file:
+
+---
+toc_depth: 2
+---
+
+ -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#constants" class="md-nav__link">
+    Constants
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
       </ul>
@@ -624,6 +776,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#abs" class="md-nav__link">
+    abs
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -655,6 +817,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#add" class="md-nav__link">
+    add
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -685,7 +857,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#after_all" class="md-nav__link">
+    after_all
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -716,6 +898,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#all_gather" class="md-nav__link">
+    all_gather
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -748,6 +940,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#all_reduce" class="md-nav__link">
+    all_reduce
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -778,7 +980,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#all_to_all" class="md-nav__link">
+    all_to_all
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -809,6 +1021,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#and" class="md-nav__link">
+    and
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -841,6 +1063,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#atan2" class="md-nav__link">
+    atan2
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -871,7 +1103,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#batch_norm_grad" class="md-nav__link">
+    batch_norm_grad
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -902,6 +1144,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#batch_norm_inference" class="md-nav__link">
+    batch_norm_inference
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -934,6 +1186,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#batch_norm_training" class="md-nav__link">
+    batch_norm_training
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -964,7 +1226,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#bitcast_convert" class="md-nav__link">
+    bitcast_convert
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -995,6 +1267,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#broadcast_in_dim" class="md-nav__link">
+    broadcast_in_dim
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -1027,6 +1309,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#case" class="md-nav__link">
+    case
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -1057,7 +1349,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#cbrt" class="md-nav__link">
+    cbrt
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -1088,6 +1390,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#ceil" class="md-nav__link">
+    ceil
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -1120,6 +1432,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#cholesky" class="md-nav__link">
+    cholesky
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -1150,7 +1472,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#clamp" class="md-nav__link">
+    clamp
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -1181,6 +1513,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#collective_permute" class="md-nav__link">
+    collective_permute
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -1213,6 +1555,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#compare" class="md-nav__link">
+    compare
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -1243,7 +1595,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#complex" class="md-nav__link">
+    complex
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -1274,6 +1636,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#concatenate" class="md-nav__link">
+    concatenate
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -1306,6 +1678,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#constant" class="md-nav__link">
+    constant
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -1336,7 +1718,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#convert" class="md-nav__link">
+    convert
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -1367,7 +1759,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#convolution" class="md-nav__link">
+    convolution
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -1398,6 +1800,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#cosine" class="md-nav__link">
+    cosine
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -1430,6 +1842,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#count_leading_zeros" class="md-nav__link">
+    count_leading_zeros
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -1460,7 +1882,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#custom_call" class="md-nav__link">
+    custom_call
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -1491,6 +1923,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#divide" class="md-nav__link">
+    divide
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -1523,6 +1965,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#dot_general" class="md-nav__link">
+    dot_general
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -1553,7 +2005,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#dynamic_slice" class="md-nav__link">
+    dynamic_slice
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -1584,6 +2046,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#dynamic_update_slice" class="md-nav__link">
+    dynamic_update_slice
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -1616,6 +2088,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#exponential" class="md-nav__link">
+    exponential
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -1646,7 +2128,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#exponential_minus_one" class="md-nav__link">
+    exponential_minus_one
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -1677,6 +2169,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#fft" class="md-nav__link">
+    fft
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -1709,6 +2211,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#floor" class="md-nav__link">
+    floor
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -1739,7 +2251,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#gather" class="md-nav__link">
+    gather
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -1770,6 +2292,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#get_dimension_size" class="md-nav__link">
+    get_dimension_size
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -1802,6 +2334,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#get_tuple_element" class="md-nav__link">
+    get_tuple_element
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -1832,7 +2374,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#if" class="md-nav__link">
+    if
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -1863,6 +2415,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#imag" class="md-nav__link">
+    imag
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -1895,6 +2457,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#infeed" class="md-nav__link">
+    infeed
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -1925,7 +2497,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#iota" class="md-nav__link">
+    iota
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -1956,6 +2538,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#is_finite" class="md-nav__link">
+    is_finite
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -1988,6 +2580,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#log" class="md-nav__link">
+    log
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -2018,7 +2620,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#log_plus_one" class="md-nav__link">
+    log_plus_one
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -2049,6 +2661,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#logistic" class="md-nav__link">
+    logistic
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -2081,6 +2703,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#map" class="md-nav__link">
+    map
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -2112,6 +2744,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#maximum" class="md-nav__link">
+    maximum
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -2142,7 +2784,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#minimum" class="md-nav__link">
+    minimum
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -2173,6 +2825,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#multiply" class="md-nav__link">
+    multiply
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -2205,6 +2867,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#negate" class="md-nav__link">
+    negate
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -2235,7 +2907,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#not" class="md-nav__link">
+    not
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -2266,6 +2948,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#optimization_barrier" class="md-nav__link">
+    optimization_barrier
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -2298,6 +2990,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#or" class="md-nav__link">
+    or
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -2328,7 +3030,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#outfeed" class="md-nav__link">
+    outfeed
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -2359,6 +3071,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#pad" class="md-nav__link">
+    pad
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -2391,6 +3113,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#partition_id" class="md-nav__link">
+    partition_id
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -2421,7 +3153,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#popcnt" class="md-nav__link">
+    popcnt
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -2452,6 +3194,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#power" class="md-nav__link">
+    power
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -2484,6 +3236,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#real" class="md-nav__link">
+    real
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -2514,7 +3276,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#recv" class="md-nav__link">
+    recv
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -2545,6 +3317,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#reduce" class="md-nav__link">
+    reduce
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -2577,6 +3359,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#reduce_precision" class="md-nav__link">
+    reduce_precision
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -2607,7 +3399,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#reduce_scatter" class="md-nav__link">
+    reduce_scatter
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -2638,6 +3440,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#reduce_window" class="md-nav__link">
+    reduce_window
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -2670,6 +3482,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#remainder" class="md-nav__link">
+    remainder
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -2700,7 +3522,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#replica_id" class="md-nav__link">
+    replica_id
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -2731,6 +3563,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#reshape" class="md-nav__link">
+    reshape
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -2763,6 +3605,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#reverse" class="md-nav__link">
+    reverse
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -2793,7 +3645,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#rng" class="md-nav__link">
+    rng
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -2824,7 +3686,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#rng_bit_generator" class="md-nav__link">
+    rng_bit_generator
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -2855,6 +3727,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#round_nearest_afz" class="md-nav__link">
+    round_nearest_afz
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -2887,6 +3769,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#round_nearest_even" class="md-nav__link">
+    round_nearest_even
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -2917,7 +3809,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#rsqrt" class="md-nav__link">
+    rsqrt
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -2948,6 +3850,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#scatter" class="md-nav__link">
+    scatter
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -2980,6 +3892,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#select" class="md-nav__link">
+    select
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -3010,7 +3932,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#select_and_scatter" class="md-nav__link">
+    select_and_scatter
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -3041,6 +3973,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#send" class="md-nav__link">
+    send
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -3073,6 +4015,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#shift_left" class="md-nav__link">
+    shift_left
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -3103,7 +4055,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#shift_right_arithmetic" class="md-nav__link">
+    shift_right_arithmetic
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -3134,6 +4096,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#shift_right_logical" class="md-nav__link">
+    shift_right_logical
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -3166,6 +4138,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#sign" class="md-nav__link">
+    sign
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -3196,7 +4178,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#sine" class="md-nav__link">
+    sine
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -3227,6 +4219,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#slice" class="md-nav__link">
+    slice
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -3259,6 +4261,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#sort" class="md-nav__link">
+    sort
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -3289,7 +4301,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#sqrt" class="md-nav__link">
+    sqrt
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -3320,6 +4342,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#subtract" class="md-nav__link">
+    subtract
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -3352,6 +4384,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#tanh" class="md-nav__link">
+    tanh
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -3382,7 +4424,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#transpose" class="md-nav__link">
+    transpose
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -3413,6 +4465,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#triangular_solve" class="md-nav__link">
+    triangular_solve
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -3445,6 +4507,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#tuple" class="md-nav__link">
+    tuple
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -3475,7 +4547,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#while" class="md-nav__link">
+    while
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -3506,6 +4588,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#xor" class="md-nav__link">
+    xor
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
       </ul>
@@ -3585,36 +4677,15 @@ toc_depth: 2
 
  -->
 
-        
-          <!--
-  Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#sequential-execution" class="md-nav__link">
+    Sequential execution
+  </a>
 
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files (the "Software"), to
-  deal in the Software without restriction, including without limitation the
-  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-  sell copies of the Software, and to permit persons to whom the Software is
-  furnished to do so, subject to the following conditions:
-
-  The above copyright notice and this permission notice shall be included in
-  all copies or substantial portions of the Software.
-
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
-  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-  IN THE SOFTWARE.
--->
-
-<!-- Allow each page to override toc_depth. For example, at the top of MD file:
-
----
-toc_depth: 2
----
-
- -->
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -3647,36 +4718,15 @@ toc_depth: 2
 
  -->
 
-        
-          <!--
-  Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#parallel-execution" class="md-nav__link">
+    Parallel execution
+  </a>
 
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files (the "Software"), to
-  deal in the Software without restriction, including without limitation the
-  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-  sell copies of the Software, and to permit persons to whom the Software is
-  furnished to do so, subject to the following conditions:
-
-  The above copyright notice and this permission notice shall be included in
-  all copies or substantial portions of the Software.
-
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
-  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-  IN THE SOFTWARE.
--->
-
-<!-- Allow each page to override toc_depth. For example, at the top of MD file:
-
----
-toc_depth: 2
----
-
- -->
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -3709,6 +4759,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#point-to-point-communication" class="md-nav__link">
+    Point-to-point communication
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -3739,6 +4799,98 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#streaming-communication" class="md-nav__link">
+    Streaming communication
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
+        
+          <!--
+  Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Allow each page to override toc_depth. For example, at the top of MD file:
+
+---
+toc_depth: 2
+---
+
+ -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#collective-ops" class="md-nav__link">
+    Collective ops
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
+        
+          <!--
+  Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Allow each page to override toc_depth. For example, at the top of MD file:
+
+---
+toc_depth: 2
+---
+
+ -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#errors" class="md-nav__link">
+    Errors
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
       </ul>
@@ -3751,13 +4903,6 @@ toc_depth: 2
   
 </nav>
       
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
     </li>
   
 
@@ -3861,36 +5006,15 @@ toc_depth: 2
 
  -->
 
-        
-          <!--
-  Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
 
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files (the "Software"), to
-  deal in the Software without restriction, including without limitation the
-  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-  sell copies of the Software, and to permit persons to whom the Software is
-  furnished to do so, subject to the following conditions:
-
-  The above copyright notice and this permission notice shall be included in
-  all copies or substantial portions of the Software.
-
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
-  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-  IN THE SOFTWARE.
--->
-
-<!-- Allow each page to override toc_depth. For example, at the top of MD file:
-
----
-toc_depth: 2
----
-
- -->
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -3923,36 +5047,15 @@ toc_depth: 2
 
  -->
 
-        
-          <!--
-  Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#identifiers" class="md-nav__link">
+    Identifiers
+  </a>
 
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files (the "Software"), to
-  deal in the Software without restriction, including without limitation the
-  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-  sell copies of the Software, and to permit persons to whom the Software is
-  furnished to do so, subject to the following conditions:
-
-  The above copyright notice and this permission notice shall be included in
-  all copies or substantial portions of the Software.
-
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
-  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-  IN THE SOFTWARE.
--->
-
-<!-- Allow each page to override toc_depth. For example, at the top of MD file:
-
----
-toc_depth: 2
----
-
- -->
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -3984,6 +5087,98 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#types" class="md-nav__link">
+    Types
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
+        
+          <!--
+  Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Allow each page to override toc_depth. For example, at the top of MD file:
+
+---
+toc_depth: 2
+---
+
+ -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#operations" class="md-nav__link">
+    Operations
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
+        
+          <!--
+  Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Allow each page to override toc_depth. For example, at the top of MD file:
+
+---
+toc_depth: 2
+---
+
+ -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#constants" class="md-nav__link">
+    Constants
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
       </ul>
@@ -4063,6 +5258,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#abs" class="md-nav__link">
+    abs
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -4094,6 +5299,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#add" class="md-nav__link">
+    add
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -4124,7 +5339,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#after_all" class="md-nav__link">
+    after_all
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -4155,6 +5380,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#all_gather" class="md-nav__link">
+    all_gather
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -4187,6 +5422,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#all_reduce" class="md-nav__link">
+    all_reduce
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -4217,7 +5462,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#all_to_all" class="md-nav__link">
+    all_to_all
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -4248,6 +5503,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#and" class="md-nav__link">
+    and
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -4280,6 +5545,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#atan2" class="md-nav__link">
+    atan2
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -4310,7 +5585,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#batch_norm_grad" class="md-nav__link">
+    batch_norm_grad
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -4341,6 +5626,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#batch_norm_inference" class="md-nav__link">
+    batch_norm_inference
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -4373,6 +5668,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#batch_norm_training" class="md-nav__link">
+    batch_norm_training
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -4403,7 +5708,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#bitcast_convert" class="md-nav__link">
+    bitcast_convert
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -4434,6 +5749,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#broadcast_in_dim" class="md-nav__link">
+    broadcast_in_dim
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -4466,6 +5791,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#case" class="md-nav__link">
+    case
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -4496,7 +5831,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#cbrt" class="md-nav__link">
+    cbrt
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -4527,6 +5872,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#ceil" class="md-nav__link">
+    ceil
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -4559,6 +5914,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#cholesky" class="md-nav__link">
+    cholesky
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -4589,7 +5954,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#clamp" class="md-nav__link">
+    clamp
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -4620,6 +5995,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#collective_permute" class="md-nav__link">
+    collective_permute
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -4652,6 +6037,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#compare" class="md-nav__link">
+    compare
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -4682,7 +6077,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#complex" class="md-nav__link">
+    complex
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -4713,6 +6118,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#concatenate" class="md-nav__link">
+    concatenate
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -4745,6 +6160,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#constant" class="md-nav__link">
+    constant
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -4775,7 +6200,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#convert" class="md-nav__link">
+    convert
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -4806,7 +6241,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#convolution" class="md-nav__link">
+    convolution
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -4837,6 +6282,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#cosine" class="md-nav__link">
+    cosine
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -4869,6 +6324,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#count_leading_zeros" class="md-nav__link">
+    count_leading_zeros
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -4899,7 +6364,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#custom_call" class="md-nav__link">
+    custom_call
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -4930,6 +6405,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#divide" class="md-nav__link">
+    divide
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -4962,6 +6447,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#dot_general" class="md-nav__link">
+    dot_general
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -4992,7 +6487,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#dynamic_slice" class="md-nav__link">
+    dynamic_slice
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -5023,6 +6528,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#dynamic_update_slice" class="md-nav__link">
+    dynamic_update_slice
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -5055,6 +6570,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#exponential" class="md-nav__link">
+    exponential
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -5085,7 +6610,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#exponential_minus_one" class="md-nav__link">
+    exponential_minus_one
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -5116,6 +6651,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#fft" class="md-nav__link">
+    fft
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -5148,6 +6693,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#floor" class="md-nav__link">
+    floor
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -5178,7 +6733,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#gather" class="md-nav__link">
+    gather
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -5209,6 +6774,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#get_dimension_size" class="md-nav__link">
+    get_dimension_size
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -5241,6 +6816,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#get_tuple_element" class="md-nav__link">
+    get_tuple_element
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -5271,7 +6856,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#if" class="md-nav__link">
+    if
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -5302,6 +6897,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#imag" class="md-nav__link">
+    imag
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -5334,6 +6939,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#infeed" class="md-nav__link">
+    infeed
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -5364,7 +6979,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#iota" class="md-nav__link">
+    iota
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -5395,6 +7020,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#is_finite" class="md-nav__link">
+    is_finite
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -5427,6 +7062,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#log" class="md-nav__link">
+    log
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -5457,7 +7102,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#log_plus_one" class="md-nav__link">
+    log_plus_one
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -5488,6 +7143,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#logistic" class="md-nav__link">
+    logistic
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -5520,6 +7185,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#map" class="md-nav__link">
+    map
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -5551,6 +7226,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#maximum" class="md-nav__link">
+    maximum
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -5581,7 +7266,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#minimum" class="md-nav__link">
+    minimum
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -5612,6 +7307,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#multiply" class="md-nav__link">
+    multiply
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -5644,6 +7349,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#negate" class="md-nav__link">
+    negate
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -5674,7 +7389,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#not" class="md-nav__link">
+    not
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -5705,6 +7430,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#optimization_barrier" class="md-nav__link">
+    optimization_barrier
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -5737,6 +7472,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#or" class="md-nav__link">
+    or
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -5767,7 +7512,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#outfeed" class="md-nav__link">
+    outfeed
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -5798,6 +7553,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#pad" class="md-nav__link">
+    pad
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -5830,6 +7595,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#partition_id" class="md-nav__link">
+    partition_id
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -5860,7 +7635,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#popcnt" class="md-nav__link">
+    popcnt
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -5891,6 +7676,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#power" class="md-nav__link">
+    power
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -5923,6 +7718,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#real" class="md-nav__link">
+    real
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -5953,7 +7758,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#recv" class="md-nav__link">
+    recv
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -5984,6 +7799,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#reduce" class="md-nav__link">
+    reduce
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -6016,6 +7841,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#reduce_precision" class="md-nav__link">
+    reduce_precision
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -6046,7 +7881,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#reduce_scatter" class="md-nav__link">
+    reduce_scatter
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -6077,6 +7922,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#reduce_window" class="md-nav__link">
+    reduce_window
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -6109,6 +7964,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#remainder" class="md-nav__link">
+    remainder
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -6139,7 +8004,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#replica_id" class="md-nav__link">
+    replica_id
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -6170,6 +8045,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#reshape" class="md-nav__link">
+    reshape
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -6202,6 +8087,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#reverse" class="md-nav__link">
+    reverse
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -6232,7 +8127,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#rng" class="md-nav__link">
+    rng
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -6263,7 +8168,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#rng_bit_generator" class="md-nav__link">
+    rng_bit_generator
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -6294,6 +8209,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#round_nearest_afz" class="md-nav__link">
+    round_nearest_afz
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -6326,6 +8251,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#round_nearest_even" class="md-nav__link">
+    round_nearest_even
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -6356,7 +8291,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#rsqrt" class="md-nav__link">
+    rsqrt
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -6387,6 +8332,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#scatter" class="md-nav__link">
+    scatter
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -6419,6 +8374,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#select" class="md-nav__link">
+    select
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -6449,7 +8414,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#select_and_scatter" class="md-nav__link">
+    select_and_scatter
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -6480,6 +8455,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#send" class="md-nav__link">
+    send
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -6512,6 +8497,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#shift_left" class="md-nav__link">
+    shift_left
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -6542,7 +8537,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#shift_right_arithmetic" class="md-nav__link">
+    shift_right_arithmetic
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -6573,6 +8578,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#shift_right_logical" class="md-nav__link">
+    shift_right_logical
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -6605,6 +8620,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#sign" class="md-nav__link">
+    sign
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -6635,7 +8660,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#sine" class="md-nav__link">
+    sine
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -6666,6 +8701,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#slice" class="md-nav__link">
+    slice
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -6698,6 +8743,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#sort" class="md-nav__link">
+    sort
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -6728,7 +8783,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#sqrt" class="md-nav__link">
+    sqrt
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -6759,6 +8824,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#subtract" class="md-nav__link">
+    subtract
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -6791,6 +8866,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#tanh" class="md-nav__link">
+    tanh
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -6821,7 +8906,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#transpose" class="md-nav__link">
+    transpose
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -6852,6 +8947,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#triangular_solve" class="md-nav__link">
+    triangular_solve
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -6884,6 +8989,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#tuple" class="md-nav__link">
+    tuple
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -6914,7 +9029,17 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#while" class="md-nav__link">
+    while
+  </a>
 
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -6945,6 +9070,16 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#xor" class="md-nav__link">
+    xor
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
       </ul>
@@ -7024,36 +9159,15 @@ toc_depth: 2
 
  -->
 
-        
-          <!--
-  Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#sequential-execution" class="md-nav__link">
+    Sequential execution
+  </a>
 
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files (the "Software"), to
-  deal in the Software without restriction, including without limitation the
-  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-  sell copies of the Software, and to permit persons to whom the Software is
-  furnished to do so, subject to the following conditions:
-
-  The above copyright notice and this permission notice shall be included in
-  all copies or substantial portions of the Software.
-
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
-  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-  IN THE SOFTWARE.
--->
-
-<!-- Allow each page to override toc_depth. For example, at the top of MD file:
-
----
-toc_depth: 2
----
-
- -->
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -7086,36 +9200,15 @@ toc_depth: 2
 
  -->
 
-        
-          <!--
-  Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#parallel-execution" class="md-nav__link">
+    Parallel execution
+  </a>
 
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files (the "Software"), to
-  deal in the Software without restriction, including without limitation the
-  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-  sell copies of the Software, and to permit persons to whom the Software is
-  furnished to do so, subject to the following conditions:
-
-  The above copyright notice and this permission notice shall be included in
-  all copies or substantial portions of the Software.
-
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
-  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-  IN THE SOFTWARE.
--->
-
-<!-- Allow each page to override toc_depth. For example, at the top of MD file:
-
----
-toc_depth: 2
----
-
- -->
+  <!-- Table of contents list -->
+  
+</li>
 
         
           <!--
@@ -7148,6 +9241,16 @@ toc_depth: 2
 
  -->
 
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#point-to-point-communication" class="md-nav__link">
+    Point-to-point communication
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
         
           <!--
   Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
@@ -7178,6 +9281,98 @@ toc_depth: 2
 ---
 
  -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#streaming-communication" class="md-nav__link">
+    Streaming communication
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
+        
+          <!--
+  Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Allow each page to override toc_depth. For example, at the top of MD file:
+
+---
+toc_depth: 2
+---
+
+ -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#collective-ops" class="md-nav__link">
+    Collective ops
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
+        
+          <!--
+  Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Allow each page to override toc_depth. For example, at the top of MD file:
+
+---
+toc_depth: 2
+---
+
+ -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#errors" class="md-nav__link">
+    Errors
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
 
         
       </ul>
