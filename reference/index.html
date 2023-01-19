@@ -511,6 +511,53 @@ toc_depth: 2
 
   <!-- Table of contents list -->
   
+    <nav class="md-nav" aria-label="Testing the interpreter">
+      <ul class="md-nav__list">
+        
+          <!--
+  Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Allow each page to override toc_depth. For example, at the top of MD file:
+
+---
+toc_depth: 2
+---
+
+ -->
+
+<!-- Table of contents item -->
+<li class="md-nav__item">
+  <a href="#testing-guidelines" class="md-nav__link">
+    Testing guidelines
+  </a>
+
+  <!-- Table of contents list -->
+  
+</li>
+
+        
+      </ul>
+    </nav>
+  
 </li>
 
       
@@ -554,8 +601,8 @@ for storage. The last one is used for storing elements with complex types.</p>
 <p><code>Tensor</code> class has the following APIs to interact with its individual elements:</p>
 <ul>
 <li><code>Element Tensor::get(llvm::ArrayRef&lt;int64_t&gt; index)</code>: To extract an
-     individual tensor element at multi-dimensional index <code>index</code> as <code>Element</code>
-     object.</li>
+  individual tensor element at multi-dimensional index <code>index</code> as <code>Element</code>
+  object.</li>
 <li><code>void Tensor::set(llvm::ArrayRef&lt;int64_t&gt; index, Element element);</code>:
   To update an <code>Element</code> object <code>element</code> into a tensor at multi-dimensional
   index <code>index</code>.</li>
@@ -645,13 +692,71 @@ dedicated test-suite, consisting of several tests exercising various runtime
 behaviors, for each StableHLO Op. The tests can be found
 <a href="https://github.com/openxla/stablehlo/tree/main/stablehlo/tests/">here</a> (e.g.
 interpret_*.mlir).</p>
+<h3 id="testing-guidelines">Testing guidelines<a class="headerlink" href="#testing-guidelines" title="Permanent link">link</a></h3>
+<p><strong>(G1) Do we need to test for all the supported types for every op?</strong></p>
+<p>We can use a combination of following rules to decide it:</p>
+<ol>
+<li>
+<p>While implementing an op, if there exists code in the corresponding <code>eval</code>
+   function to handle a particular type, then it is imperative to have test(s)
+   to cover for that type. As an example, for <code>add</code> op, there is exclusive code
+   to handle integer, boolean, floating-point, and complex types, and hence we
+   need one test for each category of types.</p>
+</li>
+<li>
+<p>If a set of types is handled uniformly in the corresponding <code>eval</code> function,
+   then a single test for all those types should be sufficient. As an example,
+   for <code>add</code> op, all the variants of integer types (<code>si4</code>, <code>u4</code>, <code>si8</code>, <code>u8</code> and
+   so on) are handled alike using <code>llvm::APInt</code> APIs, and hence we can skip
+   adding tests for each of those variants, and instead, add a single
+   representative test. To avoid ambiguity in selecting the representative, we
+   should use the following guidelines:</p>
+<ul>
+<li>If all the types, handled uniformaly, have the same primitive type
+   (i.e., if all are integer, or floating-point, or complex types), then
+   choose the one with maximum bit-width.</li>
+<li>If all the types, handled uniformaly, have a mix of primitive types, then
+   choose the one with the following primitive type, in decreasing order of
+   preference: integer, floating-point, boolean, complex.</li>
+</ul>
+</li>
+</ol>
+<p><strong>(G2) How about adding tests dedicated for testing the interpreter
+infrastructure?</strong></p>
+<p>The interpreter infrastructure is mostly straightforward and can be added to
+our trust base. The only non-trivial part is how various types are packed into
+and unpacked from the underlying interpreter storage. As discussed in (G1), we
+will be testing only those types of an op which are handled differently. With
+that it is possible that the packing/un-packing code, corresponding to different
+variants of integer/floating-point types, might not get fully covered during
+testing. To ensure that we can choose an op, like <code>constant</code>, which supports all
+the StableHLO element types and write exhaustive tests.</p>
+<p><strong>(G3) If the implementation of an op depends other ops, should be write tests
+for the latter?</strong></p>
+<p>No. For example, the implementation of <code>batch_norm_grad</code> can be based on
+<code>divide</code>, <code>subtract</code>, <code>multiply</code> and others, we should avoid testing the latter
+ops while testing the former.</p>
+<p><strong>(G4) Should we write tests to exercise the implementation-defined / undefined
+behaviors?</strong></p>
+<p>We should not write tests which exercise the implementation defined or
+undefined behaviors of the op. Tests exercising implementation defined behaviors
+demonstrate a local behavior of the interpreter which should not be
+generalized. Tests exercising undefined behavior do not contribute towards
+the understanding of the op's behavior.</p>
+<p><strong>(G5) While writing tests for floating-point type, to what precision the
+results need to be specified in llvm lit checks?</strong></p>
+<p>The current lit-based interpreter testing fails if the result is computed with a
+different precision than what is mentioned in the lit CHECK directives. As a
+quick-fix, we allow the lit checks to measure the accuracy up to an arbitrary
+places after the decimal point. But the solution is far from ideal. We plan to
+resolve it using <a href="https://github.com/openxla/stablehlo/issues/268">ticket</a>.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 21, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 19, 2023</span>
       
         <br>
         Created:

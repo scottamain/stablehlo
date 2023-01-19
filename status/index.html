@@ -473,9 +473,9 @@ one of the following tracking labels.</p>
 <li>Generic labels</li>
 <li><strong>yes</strong>: there is a comprehensive implementation.</li>
 <li><strong>no</strong>: there is no implementation, but working on that is part of
-      <a href="https://github.com/openxla/stablehlo#roadmap">the roadmap</a>.
-      Note that Verifier can never be labeled as "no" because the ODS already
-      implements some verification.</li>
+    <a href="https://github.com/openxla/stablehlo#roadmap">the roadmap</a>.
+    Note that Verifier can never be labeled as "no" because the ODS already
+    implements some verification.</li>
 <li>Customized labels for Verifier and Type Inference</li>
 <li><strong>yes</strong>: there is an implementation, and it's in sync with
     <a href="https://github.com/openxla/stablehlo/blob/main/docs/spec.md">StableHLO semantics</a>.</li>
@@ -486,11 +486,11 @@ one of the following tracking labels.</p>
     and <a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/compiler/xla/service/shape_inference.cc">shape_inference.cc</a>
     as the reference.</li>
 <li><strong>revisit</strong>: there is an implementation, but it doesn't fall under "yes"
-      or "yes*" - either because we haven't audited it yet, or because we have
-      and found issues.</li>
+    or "yes*" - either because we haven't audited it yet, or because we have
+    and found issues.</li>
 <li><strong>infeasible</strong>: there is no implementation, because it's infeasible.
-      For example, because the result type of an op cannot be inferred from
-      its operands and attributes.</li>
+    For example, because the result type of an op cannot be inferred from
+    its operands and attributes.</li>
 </ul>
 <h2 id="status">Status<a class="headerlink" href="#status" title="Permanent link">link</a></h2>
 <table>
@@ -564,7 +564,7 @@ one of the following tracking labels.</p>
 <tr>
 <td align="left">atan2</td>
 <td align="left">yes</td>
-<td align="left">revisit</td>
+<td align="left">yes</td>
 <td align="left">yes</td>
 <td align="left">yes</td>
 <td align="left">no</td>
@@ -628,7 +628,7 @@ one of the following tracking labels.</p>
 <tr>
 <td align="left">cbrt</td>
 <td align="left">yes</td>
-<td align="left">revisit</td>
+<td align="left">yes</td>
 <td align="left">yes</td>
 <td align="left">yes</td>
 <td align="left">no</td>
@@ -715,7 +715,7 @@ one of the following tracking labels.</p>
 </tr>
 <tr>
 <td align="left">convolution</td>
-<td align="left">revisit</td>
+<td align="left">yes</td>
 <td align="left">yes</td>
 <td align="left">infeasible</td>
 <td align="left">revisit</td>
@@ -1084,7 +1084,7 @@ one of the following tracking labels.</p>
 <tr>
 <td align="left">power</td>
 <td align="left">yes</td>
-<td align="left">revisit</td>
+<td align="left">yes</td>
 <td align="left">yes</td>
 <td align="left">yes</td>
 <td align="left">no</td>
@@ -1180,7 +1180,7 @@ one of the following tracking labels.</p>
 <tr>
 <td align="left">reverse</td>
 <td align="left">yes</td>
-<td align="left">revisit</td>
+<td align="left">yes</td>
 <td align="left">yes</td>
 <td align="left">yes</td>
 <td align="left">no</td>
@@ -1268,7 +1268,7 @@ one of the following tracking labels.</p>
 <tr>
 <td align="left">shift_left</td>
 <td align="left">yes</td>
-<td align="left">revisit</td>
+<td align="left">yes</td>
 <td align="left">yes</td>
 <td align="left">yes</td>
 <td align="left">no</td>
@@ -1276,7 +1276,7 @@ one of the following tracking labels.</p>
 <tr>
 <td align="left">shift_right_arithmetic</td>
 <td align="left">yes</td>
-<td align="left">revisit</td>
+<td align="left">yes</td>
 <td align="left">yes</td>
 <td align="left">yes</td>
 <td align="left">no</td>
@@ -1284,7 +1284,7 @@ one of the following tracking labels.</p>
 <tr>
 <td align="left">shift_right_logical</td>
 <td align="left">yes</td>
-<td align="left">revisit</td>
+<td align="left">yes</td>
 <td align="left">yes</td>
 <td align="left">yes</td>
 <td align="left">no</td>
@@ -1433,7 +1433,7 @@ one of the following tracking labels.</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 21, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 19, 2023</span>
       
         <br>
         Created:
