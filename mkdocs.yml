@@ -1,27 +1,30 @@
 # yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
 
 site_name: StableHLO
+logo_link_name: OpenXLA Project
 repo_url: https://github.com/openxla/stablehlo
 repo_name: openxla/stablehlo
 edit_uri: edit/main/docs/
+extra:
+  homepage: https://scottamain.github.io/community
 
 theme:
   name: material
   logo: website/assets/openxla-logo-lockup-white.svg
+  logo_alt: OpenXLA
   favicon: website/assets/favicon.ico
   icon:
     repo: fontawesome/brands/github
   font:
     text: Noto
     code: Noto Sans Mono
-  custom_dir: docs/website/overrides
   palette:
-    # Palette toggle for light mode
+    # Light mode (scheme overrides in openxla.css)
     - scheme: default
       toggle:
         icon: material/brightness-6
         name: Switch to dark mode
-    # Palette toggle for dark mode
+    # Dark mode (scheme overrides in openxla.css)
     - scheme: slate
       toggle:
         icon: material/brightness-6
@@ -33,6 +36,7 @@ theme:
     - navigation.top       # "Back to top" button
     - navigation.instant   # Ajax-style dynamic loading
     - toc.follow           # Scroll the TOC panel to follow the reader
+  custom_dir: docs/website/overrides
 
 extra_css:
   - website/stylesheets/openxla.css
@@ -58,7 +62,7 @@ markdown_extensions:
       generic: true         #   (required for some reason)
   - toc:                    # Settings for table of contents
       permalink: 'link'     # Use Material font's "link" icon; see openxla.css
-      toc_depth: 3          # Default number of headings to show in TOC
+      toc_depth: 3          # Max heading level to include in TOC
                             #   (can override in md file front matter)
 
 plugins:
@@ -68,5 +72,4 @@ plugins:
 
 nav:
   - Home: index.md
-  - Specification:
-    - StableHLO Specification: spec.md
+  - Specification: spec.md

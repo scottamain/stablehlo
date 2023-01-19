@@ -1,7 +1,6 @@
 ---
 hide:
   - navigation
-toc_depth: 2
 ---
 
 # StableHLO Specification
